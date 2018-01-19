@@ -6,10 +6,10 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class ExceptionDto {
+public class RestExceptionDto {
     private String message;
 
-    public static ExceptionDto of(Exception e) {
-        return new ExceptionDto(e.getMessage());
+    public static RestExceptionDto of(Exception e) {
+        return new RestExceptionDto(e.getMessage());
     }
 }
