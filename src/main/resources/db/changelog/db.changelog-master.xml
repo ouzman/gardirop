@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<!--suppress XmlUnusedNamespaceDeclaration -->
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="ouzman (generated)" id="1516401573298-1">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516401573298-2">
+        <createTable tableName="member">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="screen_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516401573298-3">
+        <addPrimaryKey columnNames="id" constraintName="member_pkey" tableName="member"/>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516401573298-4">
+        <addUniqueConstraint columnNames="username" constraintName="uk_gc3jmn7c2abyo3wf6syln5t2i" tableName="member"/>
+    </changeSet>
+</databaseChangeLog>
