@@ -41,9 +41,13 @@ public class ProductCategoryService {
         validateUpdateDto(productCategory, productCategoryUpdateDto);
 
         productCategory.setName(productCategoryUpdateDto.getName());
-        ProductCategory updatedProductCategory = productCategoryRepository.save(productCategory);
+        ProductCategory updatedProductCategory = this.productCategoryRepository.save(productCategory);
 
         return ProductCategoryDetailDto.of(updatedProductCategory);
+    }
+
+    public void delete(Long id) {
+        this.productCategoryRepository.delete(getOne(id));
     }
 
 

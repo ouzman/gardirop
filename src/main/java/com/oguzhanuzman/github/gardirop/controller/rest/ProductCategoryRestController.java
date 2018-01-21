@@ -39,4 +39,10 @@ public class ProductCategoryRestController {
     public ProductCategoryDetailDto update(@Valid @ModelAttribute ProductCategoryUpdateDto productCategoryUpdateDto) {
         return this.productCategoryService.update(productCategoryUpdateDto);
     }
+
+    @DeleteMapping("/{id}")
+    @Secured(Constants.Security.Roles.ADMIN)
+    public void delete(@PathVariable Long id) {
+        productCategoryService.delete(id);
+    }
 }
