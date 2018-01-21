@@ -13,7 +13,7 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 public class ProductCategory extends UniqueEntity {
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     public ProductCategory(String name) {

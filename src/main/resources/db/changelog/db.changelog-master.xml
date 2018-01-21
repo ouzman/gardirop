@@ -55,4 +55,8 @@
     <changeSet author="ouzman (generated)" id="1516563561715-2">
         <addPrimaryKey columnNames="id" constraintName="product_category_pkey" tableName="product_category"/>
     </changeSet>
+
+    <changeSet author="ouzman (generated)" id="1516568976818-1">
+        <addUniqueConstraint columnNames="name" constraintName="uk_9qvug0bmpkmxkkx33q51m7do7" tableName="product_category"/>
+    </changeSet>
 </databaseChangeLog>
