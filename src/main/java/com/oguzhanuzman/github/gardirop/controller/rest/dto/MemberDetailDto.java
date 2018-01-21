@@ -2,12 +2,11 @@ package com.oguzhanuzman.github.gardirop.controller.rest.dto;
 
 
 import com.oguzhanuzman.github.gardirop.persistence.Member;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
 public class MemberDetailDto {
     private Long id;
     private String username;

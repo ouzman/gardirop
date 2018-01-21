@@ -5,11 +5,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.validation.constraints.Pattern;
 
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 public class MemberCreateDto {
     @Length(min = 3, max = 255, message = "Screen name should be least 3, most 255 characters long!")
     @NotEmpty(message = "Screen name shouldn't be empty!")

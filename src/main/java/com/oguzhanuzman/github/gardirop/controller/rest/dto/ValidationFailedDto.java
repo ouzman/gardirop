@@ -1,6 +1,5 @@
 package com.oguzhanuzman.github.gardirop.controller.rest.dto;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -10,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
 public class ValidationFailedDto {
     private String message;
     private List<String> errors;
