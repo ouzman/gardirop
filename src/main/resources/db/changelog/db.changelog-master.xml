@@ -41,4 +41,18 @@
     <changeSet author="ouzman (generated)" id="1516495369376-3">
         <modifyDataType columnName="password" newDataType="clob" tableName="member"/>
     </changeSet>
+
+    <changeSet author="ouzman (generated)" id="1516563561715-1">
+        <createTable tableName="product_category">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516563561715-2">
+        <addPrimaryKey columnNames="id" constraintName="product_category_pkey" tableName="product_category"/>
+    </changeSet>
 </databaseChangeLog>
