@@ -1,8 +1,8 @@
 package com.oguzhanuzman.github.gardirop.service;
 
-import com.oguzhanuzman.github.gardirop.controller.rest.dto.ProductCategoryCreateDto;
-import com.oguzhanuzman.github.gardirop.controller.rest.dto.ProductCategoryDetailDto;
-import com.oguzhanuzman.github.gardirop.controller.rest.dto.ProductCategoryUpdateDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.productcategory.ProductCategoryCreateDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.productcategory.ProductCategoryDetailDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.productcategory.ProductCategoryUpdateDto;
 import com.oguzhanuzman.github.gardirop.exception.ProductCategoryAlreadyExists;
 import com.oguzhanuzman.github.gardirop.exception.ProductCategoryNotFound;
 import com.oguzhanuzman.github.gardirop.persistence.ProductCategory;

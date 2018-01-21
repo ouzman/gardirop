@@ -1,9 +1,6 @@
-package com.oguzhanuzman.github.gardirop.controller.rest;
+package com.oguzhanuzman.github.gardirop.controller.rest.productcategory;
 
 import com.oguzhanuzman.github.gardirop.Constants;
-import com.oguzhanuzman.github.gardirop.controller.rest.dto.ProductCategoryCreateDto;
-import com.oguzhanuzman.github.gardirop.controller.rest.dto.ProductCategoryDetailDto;
-import com.oguzhanuzman.github.gardirop.controller.rest.dto.ProductCategoryUpdateDto;
 import com.oguzhanuzman.github.gardirop.service.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;

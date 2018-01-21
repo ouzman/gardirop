@@ -1,4 +1,4 @@
-package com.oguzhanuzman.github.gardirop.controller.rest.dto;
+package com.oguzhanuzman.github.gardirop.controller.rest.member;
 
 
 import com.oguzhanuzman.github.gardirop.persistence.Member;

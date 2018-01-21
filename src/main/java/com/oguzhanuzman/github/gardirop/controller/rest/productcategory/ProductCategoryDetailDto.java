@@ -1,4 +1,4 @@
-package com.oguzhanuzman.github.gardirop.controller.rest.dto;
+package com.oguzhanuzman.github.gardirop.controller.rest.productcategory;
 
 
 import com.oguzhanuzman.github.gardirop.persistence.ProductCategory;

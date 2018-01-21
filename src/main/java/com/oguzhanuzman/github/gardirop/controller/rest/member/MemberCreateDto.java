@@ -1,4 +1,4 @@
-package com.oguzhanuzman.github.gardirop.controller.rest.dto;
+package com.oguzhanuzman.github.gardirop.controller.rest.member;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
