@@ -30,7 +30,7 @@ public class MemberRestController {
     }
 
     @GetMapping
-    @Secured(Constants.Security.Roles.MEMBER)
+    @Secured(Constants.Security.Roles.ADMIN)
     public List<MemberDetailDto> listMembers() {
         return this.memberService.listDetails();
     }
