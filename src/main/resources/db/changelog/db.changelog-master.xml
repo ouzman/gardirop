@@ -26,4 +26,19 @@
     <changeSet author="ouzman (generated)" id="1516401573298-4">
         <addUniqueConstraint columnNames="username" constraintName="uk_gc3jmn7c2abyo3wf6syln5t2i" tableName="member"/>
     </changeSet>
+
+    <changeSet author="ouzman (generated)" id="1516495369376-1">
+        <createTable tableName="member_permissions">
+            <column name="member_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="permissions" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516495369376-2">
+        <addForeignKeyConstraint baseColumnNames="member_id" baseTableName="member_permissions" constraintName="fkcw5l9ero6vx03e7ni0ni64y3p" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member"/>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516495369376-3">
+        <modifyDataType columnName="password" newDataType="clob" tableName="member"/>
+    </changeSet>
 </databaseChangeLog>

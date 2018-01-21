@@ -11,11 +11,13 @@ import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class BindExceptionDto {
+public class ValidationFailedDto {
+    private String message;
     private List<String> errors;
 
-    public static BindExceptionDto of(BindException ex) {
-        return new BindExceptionDto(
+    public static ValidationFailedDto of(BindException ex) {
+        return new ValidationFailedDto(
+                "Validation failed!",
                 ex.getFieldErrors().stream()
                         .map(DefaultMessageSourceResolvable::getDefaultMessage)
                         .collect(Collectors.toList())

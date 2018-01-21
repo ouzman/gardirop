@@ -131,3 +131,5 @@ buildNumber.properties
 
 
 # End of https://www.gitignore.io/api/git,java,macos,maven,jetbrains+all
+
+liquibase-diff-changeLog.xml
