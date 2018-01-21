@@ -1,5 +1,6 @@
 package com.oguzhanuzman.github.gardirop.service;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.oguzhanuzman.github.gardirop.controller.rest.dto.MemberCreateDto;
 import com.oguzhanuzman.github.gardirop.controller.rest.dto.MemberDetailDto;
 import com.oguzhanuzman.github.gardirop.enums.Permission;
@@ -47,7 +48,8 @@ public class MemberService {
         return MemberDetailDto.of(newMember);
     }
 
-    private List<Permission> generatePermissionsToCreate() {
+    @VisibleForTesting
+    List<Permission> generatePermissionsToCreate() {
         boolean newMemberIsFirstMember = memberRepository.count() == 0;
 
         if (newMemberIsFirstMember) {
