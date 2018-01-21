@@ -36,7 +36,7 @@ public class ProductCategoryRestController {
 
     @PutMapping("/{id}")
     @Secured(Constants.Security.Roles.ADMIN)
-    public ProductCategoryDetailDto update(@Valid @ModelAttribute ProductCategoryUpdateDto productCategoryUpdateDto) {
+    public ProductCategoryDetailDto update(@Valid ProductCategoryUpdateDto productCategoryUpdateDto) {
         return this.productCategoryService.update(productCategoryUpdateDto);
     }
 
