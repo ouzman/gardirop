@@ -23,7 +23,7 @@ public class ProductCategoryServiceTest {
 
     @Test(expected = ProductCategoryAlreadyExists.class)
     public void throwExceptionOnMemberCreateIfProvidedUsernameAlreadyInUse() throws Exception {
-        when(productCategoryRepository.existsByName(anyString())).thenReturn(true);
+        when(productCategoryRepository.existsByNameAndDeletedFalse(anyString())).thenReturn(true);
         productCategoryService.create(new ProductCategoryCreateDto());
     }
 

@@ -1,6 +1,6 @@
 package com.oguzhanuzman.github.gardirop.persistence;
 
-import com.oguzhanuzman.github.gardirop.persistence.base.AuditableUniqueEntity;
+import com.oguzhanuzman.github.gardirop.persistence.base.SoftDeletableAuditableUniqueEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Product extends AuditableUniqueEntity {
+public class Product extends SoftDeletableAuditableUniqueEntity {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false, precision = 8, scale = 2)

@@ -23,7 +23,7 @@ public class ProductCategoryService {
     }
 
     public List<ProductCategoryDetailDto> listDetails() {
-        return this.productCategoryRepository.findAll().stream()
+        return this.productCategoryRepository.findByDeletedFalse().stream()
                 .map(ProductCategoryDetailDto::of)
                 .collect(Collectors.toList());
     }
@@ -47,12 +47,16 @@ public class ProductCategoryService {
     }
 
     public void delete(Long id) {
-        this.productCategoryRepository.delete(getOne(id));
+        ProductCategory productCategory = getOne(id);
+        validateDelete(productCategory);
+
+        productCategory.setDeleted(true);
+        this.productCategoryRepository.save(productCategory);
     }
 
 
     public ProductCategory getOne(Long id) {
-        ProductCategory productCategory = this.productCategoryRepository.findOne(id);
+        ProductCategory productCategory = this.productCategoryRepository.findByIdAndDeletedFalse(id);
         if (productCategory == null) {
             throw new ProductCategoryNotFound(id);
         }
@@ -60,14 +64,20 @@ public class ProductCategoryService {
     }
 
     private void validateCreateDto(ProductCategoryCreateDto dto) {
-        if (this.productCategoryRepository.existsByName(dto.getName())) {
+        if (this.productCategoryRepository.existsByNameAndDeletedFalse(dto.getName())) {
             throw new ProductCategoryAlreadyExists();
         }
     }
 
     private void validateUpdateDto(ProductCategory productCategory, ProductCategoryUpdateDto dto) {
-        if (!productCategory.getName().equals(dto.getName()) && this.productCategoryRepository.existsByName(dto.getName())) {
+        if (!productCategory.getName().equals(dto.getName()) && this.productCategoryRepository.existsByNameAndDeletedFalse(dto.getName())) {
             throw new ProductCategoryAlreadyExists();
+        }
+    }
+
+    private void validateDelete(ProductCategory productCategory) {
+        if (!productCategory.getProducts().isEmpty()) {
+            throw new ProductCategoryHasProducts();
         }
     }
 }

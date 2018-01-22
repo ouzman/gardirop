@@ -1,10 +1,10 @@
 package com.oguzhanuzman.github.gardirop.repository;
 
 import com.oguzhanuzman.github.gardirop.persistence.ProductCategory;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.oguzhanuzman.github.gardirop.repository.base.SoftDeletableJpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Long> {
-    boolean existsByName(String name);
+public interface ProductCategoryRepository extends SoftDeletableJpaRepository<ProductCategory, Long> {
+    boolean existsByNameAndDeletedFalse(String name);
 }

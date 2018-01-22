@@ -31,7 +31,7 @@ public class ProductService {
     }
 
     public List<ProductDetailDto> listDetails() {
-        return this.productRepository.findAll().stream()
+        return this.productRepository.findByDeletedFalse().stream()
                 .map(ProductDetailDto::of)
                 .collect(Collectors.toList());
     }
@@ -65,7 +65,7 @@ public class ProductService {
 
 
     private Product getOne(Long id) {
-        Product product = this.productRepository.findOne(id);
+        Product product = this.productRepository.findByIdAndDeletedFalse(id);
         if (product == null) {
             throw new ProductNotFound(id);
         }

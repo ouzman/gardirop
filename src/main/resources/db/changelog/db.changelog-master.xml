@@ -179,4 +179,19 @@
         <sql>update product_category set creation_date = now(), created_by_id = (select min(id) from member) where creation_date is null;</sql>
         <sql>update product set creation_date = now(), created_by_id = (select min(id) from member) where creation_date is null;</sql>
     </changeSet>
+
+    <changeSet author="ouzman (generated)" id="1516590252670-1">
+        <addColumn tableName="product">
+            <column name="deleted" type="bool" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516590252670-2">
+        <addColumn tableName="product_category">
+            <column name="deleted" type="bool" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
