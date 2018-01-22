@@ -94,6 +94,6 @@ public class ProductService {
     }
 
     private void validateDelete(Product product) {
-        // nothing for now
+        this.validateUpdateDto(product, null);
     }
 }
