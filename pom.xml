@@ -52,6 +52,7 @@
                 <version>${spring-boot-maven-plugin.version}</version>
                 <configuration>
                     <mainClass>com.oguzhanuzman.github.gardirop.GardiropApp</mainClass>
+                    <addResources>true</addResources>
                 </configuration>
             </plugin>
             <plugin>
@@ -61,6 +62,9 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <compilerArguments>
+                        <processor>org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor,lombok.launch.AnnotationProcessorHider$AnnotationProcessor</processor>
+                    </compilerArguments>
                 </configuration>
             </plugin>
             <plugin>
@@ -123,6 +127,10 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
         </dependency>
         <!--        Utils@Platform      -->
     </dependencies>

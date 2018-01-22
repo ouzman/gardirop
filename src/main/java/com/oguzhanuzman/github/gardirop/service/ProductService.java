@@ -2,6 +2,7 @@ package com.oguzhanuzman.github.gardirop.service;
 
 import com.oguzhanuzman.github.gardirop.controller.rest.product.ProductCreateDto;
 import com.oguzhanuzman.github.gardirop.controller.rest.product.ProductDetailDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.product.ProductSearchDto;
 import com.oguzhanuzman.github.gardirop.controller.rest.product.ProductUpdateDto;
 import com.oguzhanuzman.github.gardirop.enums.Permission;
 import com.oguzhanuzman.github.gardirop.exception.ProductNotFound;
@@ -10,12 +11,15 @@ import com.oguzhanuzman.github.gardirop.persistence.Member;
 import com.oguzhanuzman.github.gardirop.persistence.Product;
 import com.oguzhanuzman.github.gardirop.persistence.ProductCategory;
 import com.oguzhanuzman.github.gardirop.repository.ProductRepository;
+import com.oguzhanuzman.github.gardirop.specs.ProductSpecs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.springframework.data.jpa.domain.Specifications.where;
 
 @Service
 public class ProductService {
@@ -30,8 +34,12 @@ public class ProductService {
         this.auditorAware = auditorAware;
     }
 
-    public List<ProductDetailDto> listDetails() {
-        return this.productRepository.findByDeletedFalse().stream()
+    public List<ProductDetailDto> listDetails(ProductSearchDto productSearchDto) {
+        ProductCategory category = productCategoryService.findOne(productSearchDto.getCategory());
+        return this.productRepository
+                .findAll(where(ProductSpecs.byDeletedFalse())
+                        .and(ProductSpecs.byCategory(category)))
+                .stream()
                 .map(ProductDetailDto::of)
                 .collect(Collectors.toList());
     }

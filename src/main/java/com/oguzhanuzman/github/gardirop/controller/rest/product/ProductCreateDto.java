@@ -24,6 +24,5 @@ public class ProductCreateDto {
     private BigDecimal price;
 
     @NotNull
-    @Min(value = 0, message = "Category should be valid product category id!")
     private Long category;
 }

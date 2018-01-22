@@ -20,8 +20,8 @@ public class ProductRestController {
     }
 
     @GetMapping
-    public List<ProductDetailDto> list() {
-        return this.productService.listDetails();
+    public List<ProductDetailDto> list(ProductSearchDto productSearchDto) {
+        return this.productService.listDetails(productSearchDto);
     }
 
     @PostMapping

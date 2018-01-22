@@ -16,7 +16,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class ProductUpdateDto {
     @NotNull(message = "Id shouldn't be empty!")
-    @Min(value = 1, message = "Id should be valid product id!")
     private Long id;
 
     @NotEmpty(message = "Name shouldn't be empty!")

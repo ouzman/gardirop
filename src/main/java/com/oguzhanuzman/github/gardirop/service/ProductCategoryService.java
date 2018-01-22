@@ -54,14 +54,18 @@ public class ProductCategoryService {
         this.productCategoryRepository.save(productCategory);
     }
 
+    public ProductCategory findOne(Long id) {
+        return this.productCategoryRepository.findByIdAndDeletedFalse(id);
+    }
 
     public ProductCategory getOne(Long id) {
-        ProductCategory productCategory = this.productCategoryRepository.findByIdAndDeletedFalse(id);
+        ProductCategory productCategory = this.findOne(id);
         if (productCategory == null) {
             throw new ProductCategoryNotFound(id);
         }
         return productCategory;
     }
+
 
     private void validateCreateDto(ProductCategoryCreateDto dto) {
         if (this.productCategoryRepository.existsByNameAndDeletedFalse(dto.getName())) {
