@@ -27,7 +27,6 @@ public class ProductDetailDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constants.Format.JACKSON_DATE_FORMAT)
     private LocalDateTime modificationDate;
 
-
     public static ProductDetailDto of(Product product) {
         if (product == null) {
             return null;
