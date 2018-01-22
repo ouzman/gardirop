@@ -38,7 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()                               // index page
                 .antMatchers(HttpMethod.POST, "/api/member").permitAll()    // register
-                // TODO: .antMatchers(HttpMethod.GET, "/api/product").permitAll()       // product list
+                .antMatchers("/api/product-category").permitAll()           // product category list
+                .antMatchers("/api/product").permitAll()                    // product list
                 .anyRequest().authenticated()
                 .and()
 

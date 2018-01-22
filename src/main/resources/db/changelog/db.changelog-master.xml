@@ -59,4 +59,28 @@
     <changeSet author="ouzman (generated)" id="1516568976818-1">
         <addUniqueConstraint columnNames="name" constraintName="uk_9qvug0bmpkmxkkx33q51m7do7" tableName="product_category"/>
     </changeSet>
+
+    <changeSet author="ouzman (generated)" id="1516580636857-1">
+        <createTable tableName="product">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="numeric(9, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516580636857-2">
+        <addPrimaryKey columnNames="id" constraintName="product_pkey" tableName="product"/>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516580636857-3">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="product" constraintName="fk5cypb0k23bovo3rn1a5jqs6j4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
+                                 onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_category"/>
+    </changeSet>
 </databaseChangeLog>

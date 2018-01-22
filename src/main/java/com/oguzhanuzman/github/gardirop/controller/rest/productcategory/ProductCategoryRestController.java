@@ -20,7 +20,6 @@ public class ProductCategoryRestController {
     }
 
     @GetMapping
-    @Secured(Constants.Security.Roles.MEMBER)
     public List<ProductCategoryDetailDto> list() {
         return this.productCategoryService.listDetails();
     }
