@@ -51,7 +51,7 @@ public class ProductCategoryService {
     }
 
 
-    private ProductCategory getOne(Long id) {
+    public ProductCategory getOne(Long id) {
         ProductCategory productCategory = this.productCategoryRepository.findOne(id);
         if (productCategory == null) {
             throw new ProductCategoryNotFound(id);

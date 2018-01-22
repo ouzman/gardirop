@@ -17,8 +17,14 @@ import java.math.BigDecimal;
 public class Product extends UniqueEntity {
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false, precision = 9, scale = 2)
+    @Column(nullable = false, precision = 8, scale = 2)
     private BigDecimal price;
     @ManyToOne(optional = false)
     private ProductCategory category;
+
+    public Product(String name, BigDecimal price, ProductCategory category) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+    }
 }

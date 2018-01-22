@@ -1,6 +1,7 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <!--suppress XmlUnusedNamespaceDeclaration -->
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+<databaseChangeLog xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
     <changeSet author="ouzman (generated)" id="1516401573298-1">
         <createSequence sequenceName="hibernate_sequence"/>
     </changeSet>
@@ -36,7 +37,8 @@
         </createTable>
     </changeSet>
     <changeSet author="ouzman (generated)" id="1516495369376-2">
-        <addForeignKeyConstraint baseColumnNames="member_id" baseTableName="member_permissions" constraintName="fkcw5l9ero6vx03e7ni0ni64y3p" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member"/>
+        <addForeignKeyConstraint baseColumnNames="member_id" baseTableName="member_permissions" constraintName="fkcw5l9ero6vx03e7ni0ni64y3p" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member"/>
     </changeSet>
     <changeSet author="ouzman (generated)" id="1516495369376-3">
         <modifyDataType columnName="password" newDataType="clob" tableName="member"/>
@@ -82,5 +84,9 @@
     <changeSet author="ouzman (generated)" id="1516580636857-3">
         <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="product" constraintName="fk5cypb0k23bovo3rn1a5jqs6j4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
                                  onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_category"/>
+    </changeSet>
+
+    <changeSet author="ouzman (generated)" id="1516582360075-1">
+        <modifyDataType columnName="price" newDataType="number(8,2)" tableName="product"/>
     </changeSet>
 </databaseChangeLog>
