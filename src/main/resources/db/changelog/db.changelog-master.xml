@@ -89,4 +89,94 @@
     <changeSet author="ouzman (generated)" id="1516582360075-1">
         <modifyDataType columnName="price" newDataType="number(8,2)" tableName="product"/>
     </changeSet>
+
+    <changeSet author="ouzman (generated)" id="1516585211821-1">
+        <addColumn tableName="member">
+            <column name="creation_date" type="timestamp(29, 6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-2">
+        <addColumn tableName="product">
+            <column name="creation_date" type="timestamp(29, 6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-3">
+        <addColumn tableName="product_category">
+            <column name="creation_date" type="timestamp(29, 6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-4">
+        <addColumn tableName="member">
+            <column name="modification_date" type="timestamp(29, 6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-5">
+        <addColumn tableName="product">
+            <column name="modification_date" type="timestamp(29, 6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-6">
+        <addColumn tableName="product_category">
+            <column name="modification_date" type="timestamp(29, 6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-7">
+        <addColumn tableName="product_category">
+            <column name="created_by_id" type="BIGINT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-8">
+        <addColumn tableName="product">
+            <column name="created_by_id" type="BIGINT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-9">
+        <addColumn tableName="product_category">
+            <column name="modified_by_id" type="BIGINT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-10">
+        <addColumn tableName="member">
+            <column name="created_by_id" type="BIGINT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-11">
+        <addColumn tableName="product">
+            <column name="modified_by_id" type="BIGINT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-12">
+        <addColumn tableName="member">
+            <column name="modified_by_id" type="BIGINT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-13">
+        <addForeignKeyConstraint baseColumnNames="modified_by_id" baseTableName="product" constraintName="fkchjb5v02ypgp1aftjbkjv2yyq" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
+                                 onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member"/>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-14">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="member" constraintName="fkcjgplvqaql2wv6324g30h2aw5" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
+                                 onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member"/>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-15">
+        <addForeignKeyConstraint baseColumnNames="modified_by_id" baseTableName="product_category" constraintName="fke9mjclvdq1pxbvuv8jtfl552y" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member"/>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-16">
+        <addForeignKeyConstraint baseColumnNames="modified_by_id" baseTableName="member" constraintName="fkq2hj89jth36gwrxfj2hhwbmgs" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
+                                 onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member"/>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-17">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="product_category" constraintName="fkt8t3p3rskvmn5at16ytnsva2s" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member"/>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516585211821-18">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="product" constraintName="fktab637jf2eqpy93vop5rqr4kn" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
+                                 onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member"/>
+    </changeSet>
+
+    <changeSet id="20180122044712-1" author="ouzman">
+        <sql>update product_category set creation_date = now(), created_by_id = (select min(id) from member) where creation_date is null;</sql>
+        <sql>update product set creation_date = now(), created_by_id = (select min(id) from member) where creation_date is null;</sql>
+    </changeSet>
 </databaseChangeLog>

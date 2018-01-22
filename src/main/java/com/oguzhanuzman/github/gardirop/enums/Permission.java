@@ -5,8 +5,8 @@ import lombok.Getter;
 
 @Getter
 public enum Permission {
-    MEMBER(Constants.Security.Roles.MEMBER),
-    ADMIN(Constants.Security.Roles.ADMIN);
+    MEMBER(Constants.Security.Role.MEMBER),
+    ADMIN(Constants.Security.Role.ADMIN);
 
     private String springSecurityRole;
 

@@ -28,7 +28,7 @@ public class ProductRestController {
     }
 
     @PostMapping
-    @Secured(Constants.Security.Roles.MEMBER)
+    @Secured(Constants.Security.Role.MEMBER)
     public ProductDetailDto create(@Valid ProductCreateDto productCreateDto) {
         return this.productService.create(productCreateDto);
     }

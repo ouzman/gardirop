@@ -13,6 +13,10 @@ public class MemberDetailDto {
     private String visibleName;
 
     public static MemberDetailDto of(Member member) {
+        if (member == null) {
+            return null;
+        }
+
         return new MemberDetailDto(member.getId(), member.getUsername(), member.getScreenName());
     }
 }

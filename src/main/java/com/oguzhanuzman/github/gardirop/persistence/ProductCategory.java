@@ -1,6 +1,6 @@
 package com.oguzhanuzman.github.gardirop.persistence;
 
-import com.oguzhanuzman.github.gardirop.persistence.base.UniqueEntity;
+import com.oguzhanuzman.github.gardirop.persistence.base.AuditableUniqueEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ProductCategory extends UniqueEntity {
+public class ProductCategory extends AuditableUniqueEntity {
     @Column(nullable = false, unique = true)
     private String name;
 

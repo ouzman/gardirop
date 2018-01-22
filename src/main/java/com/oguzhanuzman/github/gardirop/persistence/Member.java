@@ -1,7 +1,7 @@
 package com.oguzhanuzman.github.gardirop.persistence;
 
 import com.oguzhanuzman.github.gardirop.enums.Permission;
-import com.oguzhanuzman.github.gardirop.persistence.base.UniqueEntity;
+import com.oguzhanuzman.github.gardirop.persistence.base.AuditableUniqueEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Member extends UniqueEntity {
+public class Member extends AuditableUniqueEntity {
     @Column(nullable = false)
     private String screenName;
     @Column(nullable = false, unique = true)

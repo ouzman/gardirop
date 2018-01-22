@@ -12,6 +12,10 @@ public class ProductCategoryDetailDto {
     private String name;
 
     public static ProductCategoryDetailDto of(ProductCategory productCategory) {
+        if (productCategory == null) {
+            return null;
+        }
+
         return new ProductCategoryDetailDto(productCategory.getId(), productCategory.getName());
     }
 }

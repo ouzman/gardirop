@@ -3,6 +3,7 @@ package com.oguzhanuzman.github.gardirop.configuration;
 import com.oguzhanuzman.github.gardirop.enums.Permission;
 import com.oguzhanuzman.github.gardirop.persistence.Member;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+@Getter
 @AllArgsConstructor
 public class SecurityPrincipal implements UserDetails {
     private Member member;

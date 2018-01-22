@@ -25,19 +25,19 @@ public class ProductCategoryRestController {
     }
 
     @PostMapping
-    @Secured(Constants.Security.Roles.ADMIN)
+    @Secured(Constants.Security.Role.ADMIN)
     public ProductCategoryDetailDto create(@Valid ProductCategoryCreateDto productCategoryCreateDto) {
         return this.productCategoryService.create(productCategoryCreateDto);
     }
 
     @PutMapping("/{id}")
-    @Secured(Constants.Security.Roles.ADMIN)
+    @Secured(Constants.Security.Role.ADMIN)
     public ProductCategoryDetailDto update(@Valid ProductCategoryUpdateDto productCategoryUpdateDto) {
         return this.productCategoryService.update(productCategoryUpdateDto);
     }
 
     @DeleteMapping("/{id}")
-    @Secured(Constants.Security.Roles.ADMIN)
+    @Secured(Constants.Security.Role.ADMIN)
     public void delete(@PathVariable Long id) {
         productCategoryService.delete(id);
     }
