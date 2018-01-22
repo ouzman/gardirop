@@ -42,11 +42,7 @@ public class ProductService {
         ProductCategory category = this.productCategoryService.getOne(productCreateDto.getCategory());
 
         Product newProduct = this.productRepository.save(
-                new Product(
-                        productCreateDto.getName(),
-                        productCreateDto.getPrice(),
-                        category
-                )
+                new Product(productCreateDto.getName(), productCreateDto.getPrice(), category)
         );
 
         return ProductDetailDto.of(newProduct);
@@ -63,6 +59,13 @@ public class ProductService {
         return ProductDetailDto.of(updatedProduct);
     }
 
+    public void delete(Long id) {
+        Product product = this.getOne(id);
+        validateDelete(product);
+
+        product.setDeleted(true);
+        this.productRepository.save(product);
+    }
 
     private Product getOne(Long id) {
         Product product = this.productRepository.findByIdAndDeletedFalse(id);
@@ -88,5 +91,9 @@ public class ProductService {
         if (!currentAuditorIsAdmin && !currentAuditorIsOwner) {
             throw new ProductUpdateForbidden();
         }
+    }
+
+    private void validateDelete(Product product) {
+        // nothing for now
     }
 }

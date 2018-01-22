@@ -36,5 +36,9 @@ public class ProductRestController {
         return this.productService.update(productUpdateDto);
     }
 
-
+    @DeleteMapping("/{id}")
+    @Secured(Constants.Security.Role.MEMBER)
+    public void delete(@PathVariable Long id) {
+        this.productService.delete(id);
+    }
 }
