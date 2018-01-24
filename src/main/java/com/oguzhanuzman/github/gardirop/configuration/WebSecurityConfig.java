@@ -18,11 +18,11 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationEn
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private final MemberUserDetailsService memberUserDetailsService;
+    private final SecurityPrincipalDetailsService securityPrincipalDetailsService;
 
     @Autowired
-    public WebSecurityConfig(MemberUserDetailsService memberUserDetailsService) {
-        this.memberUserDetailsService = memberUserDetailsService;
+    public WebSecurityConfig(SecurityPrincipalDetailsService securityPrincipalDetailsService) {
+        this.securityPrincipalDetailsService = securityPrincipalDetailsService;
     }
 
     @Bean
@@ -57,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-                .userDetailsService(memberUserDetailsService)
-                .passwordEncoder(NoOpPasswordEncoder.getInstance());
+                .userDetailsService(securityPrincipalDetailsService)
+                .passwordEncoder(NoOpPasswordEncoder.getInstance()); // TODO: replace with another PasswordEncoder implementation
     }
 }

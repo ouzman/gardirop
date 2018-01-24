@@ -1,9 +1,9 @@
-package com.oguzhanuzman.github.gardirop.controller.rest.product;
+package com.oguzhanuzman.github.gardirop.controller.rest.dto.product;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.oguzhanuzman.github.gardirop.Constants;
-import com.oguzhanuzman.github.gardirop.controller.rest.member.MemberDetailDto;
-import com.oguzhanuzman.github.gardirop.controller.rest.productcategory.ProductCategoryDetailDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.dto.member.MemberDetailDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.dto.productcategory.ProductCategoryDetailDto;
 import com.oguzhanuzman.github.gardirop.persistence.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

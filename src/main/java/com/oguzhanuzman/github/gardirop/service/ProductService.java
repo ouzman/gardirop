@@ -1,9 +1,9 @@
 package com.oguzhanuzman.github.gardirop.service;
 
-import com.oguzhanuzman.github.gardirop.controller.rest.product.ProductCreateDto;
-import com.oguzhanuzman.github.gardirop.controller.rest.product.ProductDetailDto;
-import com.oguzhanuzman.github.gardirop.controller.rest.product.ProductSearchDto;
-import com.oguzhanuzman.github.gardirop.controller.rest.product.ProductUpdateDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.dto.product.ProductCreateDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.dto.product.ProductDetailDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.dto.product.ProductSearchDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.dto.product.ProductUpdateDto;
 import com.oguzhanuzman.github.gardirop.enums.Permission;
 import com.oguzhanuzman.github.gardirop.exception.ProductNotFound;
 import com.oguzhanuzman.github.gardirop.exception.ProductUpdateForbidden;

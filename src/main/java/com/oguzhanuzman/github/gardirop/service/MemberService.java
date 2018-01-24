@@ -1,8 +1,8 @@
 package com.oguzhanuzman.github.gardirop.service;
 
 import com.google.common.annotations.VisibleForTesting;
-import com.oguzhanuzman.github.gardirop.controller.rest.member.MemberCreateDto;
-import com.oguzhanuzman.github.gardirop.controller.rest.member.MemberDetailDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.dto.member.MemberCreateDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.dto.member.MemberDetailDto;
 import com.oguzhanuzman.github.gardirop.enums.Permission;
 import com.oguzhanuzman.github.gardirop.exception.MemberAlreadyExists;
 import com.oguzhanuzman.github.gardirop.persistence.Member;

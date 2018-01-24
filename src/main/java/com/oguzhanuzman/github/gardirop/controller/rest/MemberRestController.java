@@ -1,6 +1,8 @@
-package com.oguzhanuzman.github.gardirop.controller.rest.member;
+package com.oguzhanuzman.github.gardirop.controller.rest;
 
 import com.oguzhanuzman.github.gardirop.Constants;
+import com.oguzhanuzman.github.gardirop.controller.rest.dto.member.MemberCreateDto;
+import com.oguzhanuzman.github.gardirop.controller.rest.dto.member.MemberDetailDto;
 import com.oguzhanuzman.github.gardirop.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
