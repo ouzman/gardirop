@@ -10,4 +10,11 @@ public class Constants {
             public static final String ADMIN = "ROLE_ADMIN";
         }
     }
+
+    public static class AWS {
+        public static class S3 {
+            public static final String BUCKET = "gardirop-resource-bucket";
+            public static final String PRODUCT = "product";
+        }
+    }
 }

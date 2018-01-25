@@ -194,4 +194,24 @@
             </column>
         </addColumn>
     </changeSet>
+
+    <changeSet author="ouzman (generated)" id="1516842221740-1">
+        <dropDefaultValue columnDataType="boolean" columnName="deleted" tableName="product"/>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516842221740-2">
+        <dropDefaultValue columnDataType="boolean" columnName="deleted" tableName="product_category"/>
+    </changeSet>
+
+    <changeSet author="ouzman (generated)" id="1516842954653-1">
+        <createTable tableName="product_image_keys">
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_keys" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ouzman (generated)" id="1516842954653-2">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="product_image_keys" constraintName="fkdvun53359l3x71muttdbnkloj" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product"/>
+    </changeSet>
 </databaseChangeLog>

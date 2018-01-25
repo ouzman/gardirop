@@ -1,6 +1,6 @@
-package com.oguzhanuzman.github.gardirop.service;
+package com.oguzhanuzman.github.gardirop.exception.productcategory;
 
-import com.oguzhanuzman.github.gardirop.exception.RestException;
+import com.oguzhanuzman.github.gardirop.exception.base.RestException;
 
 public class ProductCategoryHasProducts extends RestException {
     public ProductCategoryHasProducts() {

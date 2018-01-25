@@ -11,6 +11,9 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -26,11 +29,14 @@ public class ProductDetailDto {
     private LocalDateTime creationDate;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constants.Format.JACKSON_DATE_FORMAT)
     private LocalDateTime modificationDate;
+    private List<String> images;
 
-    public static ProductDetailDto of(Product product) {
+    public static ProductDetailDto of(Product product, Function<String, String> imageKeyToUrlMapper) {
         if (product == null) {
             return null;
         }
+
+        List<String> imageUrls = product.getImageKeys().stream().map(imageKeyToUrlMapper).collect(Collectors.toList());
 
         return new ProductDetailDto(
                 product.getId(),
@@ -39,7 +45,8 @@ public class ProductDetailDto {
                 ProductCategoryDetailDto.of(product.getCategory()),
                 MemberDetailDto.of(product.getCreatedBy()),
                 product.getCreationDate(),
-                product.getModificationDate()
+                product.getModificationDate(),
+                imageUrls
         );
     }
 }

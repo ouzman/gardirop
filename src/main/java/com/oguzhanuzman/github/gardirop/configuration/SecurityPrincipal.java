@@ -51,7 +51,6 @@ public class SecurityPrincipal implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        // FIXME: add 'deleted' property to Member
         return true;
     }
 }

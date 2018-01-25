@@ -1,7 +1,7 @@
 package com.oguzhanuzman.github.gardirop.service;
 
 import com.oguzhanuzman.github.gardirop.controller.rest.dto.productcategory.ProductCategoryCreateDto;
-import com.oguzhanuzman.github.gardirop.exception.ProductCategoryAlreadyExists;
+import com.oguzhanuzman.github.gardirop.exception.productcategory.ProductCategoryAlreadyExists;
 import com.oguzhanuzman.github.gardirop.repository.ProductCategoryRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;

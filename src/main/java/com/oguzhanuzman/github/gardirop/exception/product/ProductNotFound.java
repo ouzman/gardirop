@@ -1,4 +1,4 @@
-package com.oguzhanuzman.github.gardirop.exception;
+package com.oguzhanuzman.github.gardirop.exception.product;
 
 import javax.persistence.EntityNotFoundException;
 

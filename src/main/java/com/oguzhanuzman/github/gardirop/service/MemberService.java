@@ -4,7 +4,7 @@ import com.google.common.annotations.VisibleForTesting;
 import com.oguzhanuzman.github.gardirop.controller.rest.dto.member.MemberCreateDto;
 import com.oguzhanuzman.github.gardirop.controller.rest.dto.member.MemberDetailDto;
 import com.oguzhanuzman.github.gardirop.enums.Permission;
-import com.oguzhanuzman.github.gardirop.exception.MemberAlreadyExists;
+import com.oguzhanuzman.github.gardirop.exception.member.MemberAlreadyExists;
 import com.oguzhanuzman.github.gardirop.persistence.Member;
 import com.oguzhanuzman.github.gardirop.repository.MemberRepository;
 import org.apache.commons.lang3.StringUtils;
@@ -32,9 +32,7 @@ public class MemberService {
     }
 
     public MemberDetailDto create(MemberCreateDto memberCreateDto) {
-        if (this.memberRepository.existsByUsername(memberCreateDto.getUsername())) {
-            throw new MemberAlreadyExists();
-        }
+        validateCreateRequirements(memberCreateDto);
 
         Member newMember = this.memberRepository.save(
                 new Member(
@@ -64,5 +62,11 @@ public class MemberService {
             return null;
         }
         return this.memberRepository.findByUsername(username);
+    }
+
+    private void validateCreateRequirements(MemberCreateDto memberCreateDto) {
+        if (this.memberRepository.existsByUsername(memberCreateDto.getUsername())) {
+            throw new MemberAlreadyExists();
+        }
     }
 }

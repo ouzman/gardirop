@@ -2,7 +2,7 @@ package com.oguzhanuzman.github.gardirop.controller;
 
 import com.oguzhanuzman.github.gardirop.controller.rest.dto.RestExceptionDto;
 import com.oguzhanuzman.github.gardirop.controller.rest.dto.ValidationFailedDto;
-import com.oguzhanuzman.github.gardirop.exception.RestException;
+import com.oguzhanuzman.github.gardirop.exception.base.RestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;

@@ -1,6 +1,5 @@
 package com.oguzhanuzman.github.gardirop.controller.rest;
 
-import com.oguzhanuzman.github.gardirop.Constants;
 import com.oguzhanuzman.github.gardirop.controller.rest.dto.productcategory.ProductCategoryCreateDto;
 import com.oguzhanuzman.github.gardirop.controller.rest.dto.productcategory.ProductCategoryDetailDto;
 import com.oguzhanuzman.github.gardirop.controller.rest.dto.productcategory.ProductCategoryUpdateDto;
@@ -11,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+
+import static com.oguzhanuzman.github.gardirop.Constants.Security.Role;
 
 @RestController
 @RequestMapping("/api/product-category")
@@ -28,19 +29,19 @@ public class ProductCategoryRestController {
     }
 
     @PostMapping
-    @Secured(Constants.Security.Role.ADMIN)
+    @Secured(Role.ADMIN)
     public ProductCategoryDetailDto create(@Valid ProductCategoryCreateDto productCategoryCreateDto) {
         return this.productCategoryService.create(productCategoryCreateDto);
     }
 
     @PutMapping("/{id}")
-    @Secured(Constants.Security.Role.ADMIN)
+    @Secured(Role.ADMIN)
     public ProductCategoryDetailDto update(@Valid ProductCategoryUpdateDto productCategoryUpdateDto) {
         return this.productCategoryService.update(productCategoryUpdateDto);
     }
 
     @DeleteMapping("/{id}")
-    @Secured(Constants.Security.Role.ADMIN)
+    @Secured(Role.ADMIN)
     public void delete(@PathVariable Long id) {
         productCategoryService.delete(id);
     }

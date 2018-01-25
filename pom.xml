@@ -15,6 +15,9 @@
         <spring-boot-maven-plugin.version>1.5.2.RELEASE</spring-boot-maven-plugin.version>
         <liquibase-maven-plugin.version>3.5.2</liquibase-maven-plugin.version>
         <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
+
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+        <buildNumber>${maven.build.timestamp}</buildNumber>
     </properties>
 
     <dependencyManagement>
@@ -30,6 +33,19 @@
     </dependencyManagement>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.properties</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -54,6 +70,13 @@
                     <mainClass>com.oguzhanuzman.github.gardirop.GardiropApp</mainClass>
                     <addResources>true</addResources>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -73,6 +96,22 @@
                 <version>${liquibase-maven-plugin.version}</version>
                 <configuration>
                     <propertyFile>${basedir}/src/main/resources/liquibase.properties</propertyFile>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>br.com.ingenieux</groupId>
+                <artifactId>beanstalk-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <configuration>
+                    <applicationName>gardirop-app</applicationName>
+                    <regionName>us-west-2</regionName>
+                    <s3Bucket>gardirop-beanstalk-bucket</s3Bucket>
+                    <s3Key>${project.artifactId}/${project.build.finalName}.jar</s3Key>
+                    <cnamePrefix>gardirop-dev</cnamePrefix>
+                    <environmentName>gardirop-dev</environmentName>
+                    <environmentRef>gardirop-dev</environmentRef>
+                    <versionLabel>${project.version}-${buildNumber}</versionLabel>
+                    <solutionStack>64bit Amazon Linux 2017.09 v2.6.4 running Java 8</solutionStack>
                 </configuration>
             </plugin>
         </plugins>
@@ -101,6 +140,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-aws-autoconfigure</artifactId>
+            <version>1.2.2.RELEASE</version>
+        </dependency>
         <!--            Spring          -->
 
         <!--        Utils@Platform      -->
@@ -121,6 +165,14 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
@@ -131,6 +183,10 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-jpamodelgen</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
         </dependency>
         <!--        Utils@Platform      -->
     </dependencies>
